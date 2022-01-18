@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>Welcome to the {{ title }} page!</h1>
+    {% for project in projects %}
+        <h5>{{ project.name }}</h5>
+    {% endfor %}
     <script type="text/javascript" src={% static 'js/bootstrap.bundle.css' %}></script>
 </body>
 </html>
