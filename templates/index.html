@@ -4,13 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href={% static 'css/bootstrap.css' %}>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href={% static 'css/bootstrap/bootstrap.css' %}>
+    <link rel="stylesheet" href={% static 'css/main.css' %}>
 </head>
-<body>
-    <h1>Welcome to the {{ title }} page!</h1>
-    {% for project in projects %}
-        <h5>{{ project.name }}</h5>
-    {% endfor %}
-    <script type="text/javascript" src={% static 'js/bootstrap.bundle.css' %}></script>
+<body class="primary-bg">
+    <div class="d-flex secondary-bg py-4 justify-content-center" id="bio">
+        <div class="col-4">
+            <div class="col-8 mx-auto">
+                <img class="img-fluid rounded-circle" src="http://web.lukeido.com/imgs/ido.jpg" alt="A picture of Ido Tanne">
+            </div>
+        </div>
+        <div class="col-7 d-flex flex-column justify-content-center">
+            <div class="col-10">
+                <h1>Ido Tanne</h1>
+                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus leo arcu, rutrum vitae ullamcorper eu, consequat nec nisl. Curabitur fringilla eros sit amet turpis dignissim dapibus. Nunc sagittis, sem eu posuere tempus, sapien massa euismod lectus, laoreet imperdiet magna nulla id arcu. Quisque dapibus dui euismod, bibendum est at, dictum tellus. Duis eget lorem lectus. Cras pharetra diam at nisl ultrices, imperdiet laoreet mauris hendrerit.</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-11 mx-auto mt-3" id="skills">
+        <div class="text-center">
+            <h1>My Skill Set</h1>
+            <div class="row mt-4">
+                <div class="col-4 text-center">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="bi bi-code"></i>
+                            <h1>Front-End Skills</h1>
+                            {% for skill in frontEndSkills %}
+                                <h5>{{ skill.skill }}</h5>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            <div class="col-4 text-center">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="bi bi-code-slash"></i>
+                        <h1>Back-End Skills</h1>
+                        {% for skill in backEndSkills %}
+                            <h5>{{ skill.skill }}</h5>
+                        {% endfor %}
+                </div>
+              </div>
+            </div>
+            <div class="col-4 text-center">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="bi bi-droplet-half"></i>
+                        <h1>Design Skills</h1>
+                        {% for skill in designSkills %}
+                            <h5>{{ skill.skill }}</h5>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-11 mx-auto mt-3" id="projects">
+        <h1 class="text-center">Projects</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for project in projects %}
+                <div class="col">
+                    <div class="card" style="height:10rem; background:linear-gradient(0deg, rgba(105, 109, 125, 0.3), rgba(105, 109, 125, 0.3)), url('{{ project.image }}'); background-size: cover; background-position-y: center;">
+                      <div class="card-body d-flex align-items-center justify-content-center">
+                        <h3><a class="link-light" style="text-decoration: none" href={{ project.url }}>{{ project.name }}</a></h3>
+                      </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="mt-3" id="resume-linkedin">
+        <div class="col-11 mx-auto text-center">
+            <h1>Resume & LinkedIn</h1>
+            <div class="row justify-content-around">
+                <div class="col-3">
+                    <h1>Resume</h1>
+                    <i class="bi bi-file-earmark-pdf-fill" style="font-size: 10rem;"></i>
+                </div>
+                <div class="col-3">
+                    <h1>LinkedIn</h1>
+                    <i class="bi bi-linkedin" style="font-size: 10rem;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src={% static 'js/bootstrap/bootstrap.bundle.css' %}></script>
 </body>
 </html>

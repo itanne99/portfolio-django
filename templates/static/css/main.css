@@ -6,3 +6,12 @@
     background-color: #466060;
     color: white;
 }
+
+.card-body .bi{
+    font-size: 5rem;
+    color:#000080
+}
+
+#resume-linkedin{
+    background: #696d7d;
+}
